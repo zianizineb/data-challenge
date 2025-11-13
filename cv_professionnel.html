@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Zied Zouari</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 60px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .title {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 50px 60px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid #e2e8f0;
+            position: relative;
+        }
+
+        .experience-item::before, .education-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .item-company {
+            font-size: 16px;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            font-size: 14px;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .item-description {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+
+        .item-description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .item-description li {
+            margin-bottom: 6px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: #667eea;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .languages {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            flex: 1;
+            min-width: 200px;
+            background: #f7fafc;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .language-level {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .header {
+                padding: 30px 40px;
+            }
+
+            .content {
+                padding: 30px 40px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header, .content {
+                padding: 30px 25px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Zied Zouari</h1>
+            <div class="title">Data Scientist & Machine Learning Engineer</div>
+            <div class="contact-info">
+                <span>📧 zied.zouari@dauphine.eu</span>
+                <span>📱 +33 7 69 03 01 82</span>
+                <a href="https://www.linkedin.com/in/zied-zouari" target="_blank">🔗 LinkedIn</a>
+                <a href="https://github.com/ziedzouari" target="_blank">💻 GitHub</a>
+                <span>📍 Paris, France</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Profil</h2>
+                <p class="profile-text">
+                    Data Scientist passionné avec une solide expertise en Machine Learning et Deep Learning, actuellement en Master 2 Data Science à l'Université Paris Dauphine-PSL. Fort d'une expérience pratique en développement de modèles prédictifs et en analyse de données complexes, je combine rigueur académique et compétences techniques avancées pour résoudre des problèmes business concrets. Spécialisé dans le traitement du langage naturel (NLP), la vision par ordinateur et l'optimisation d'algorithmes, je recherche des opportunités pour contribuer à des projets innovants en intelligence artificielle.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Formation</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Master 2 Data Science</div>
+                            <div class="item-company">Université Paris Dauphine-PSL</div>
+                        </div>
+                        <div class="item-date">2024 - 2025</div>
+                    </div>
+                    <div class="item-description">
+                        Formation d'excellence en science des données couvrant le Machine Learning avancé, le Deep Learning, l'optimisation et les statistiques appliquées. Projets académiques incluant la classification d'images, le traitement du langage naturel et l'analyse prédictive.
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Master 1 Mathématiques Appliquées</div>
+                            <div class="item-company">Université Paris Dauphine-PSL</div>
+                        </div>
+                        <div class="item-date">2023 - 2024</div>
+                    </div>
+                    <div class="item-description">
+                        Spécialisation en modélisation mathématique, statistiques et probabilités. Acquisition de bases solides en analyse numérique et optimisation.
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Licence Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales (MIASHS)</div>
+                            <div class="item-company">Université Paris Dauphine-PSL</div>
+                        </div>
+                        <div class="item-date">2020 - 2023</div>
+                    </div>
+                    <div class="item-description">
+                        Formation pluridisciplinaire combinant mathématiques, informatique et sciences sociales. Développement de compétences en programmation, bases de données et analyse statistique.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Expérience Professionnelle</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Stage Data Scientist</div>
+                            <div class="item-company">Entreprise (à préciser)</div>
+                        </div>
+                        <div class="item-date">2024</div>
+                    </div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Développement et déploiement de modèles de Machine Learning pour résoudre des problématiques métier</li>
+                            <li>Analyse exploratoire de données complexes et création de visualisations interactives</li>
+                            <li>Optimisation des performances de modèles existants et réduction du temps d'inférence</li>
+                            <li>Collaboration avec les équipes techniques pour l'intégration des solutions en production</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Projets Académiques & Personnels</h2>
+                
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Classification d'Images avec Deep Learning</div>
+                        </div>
+                        <div class="item-date">2024</div>
+                    </div>
+                    <div class="item-description">
+                        Développement d'un modèle CNN pour la classification d'images avec PyTorch. Implémentation de techniques d'augmentation de données et de transfer learning (ResNet, VGG). Atteinte d'une précision de 95%+ sur le dataset de validation.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Analyse de Sentiments sur Twitter</div>
+                        </div>
+                        <div class="item-date">2024</div>
+                    </div>
+                    <div class="item-description">
+                        Projet NLP utilisant des transformers (BERT) pour l'analyse de sentiments. Preprocessing de données textuelles, tokenization et fine-tuning de modèles pré-entraînés. Déploiement d'une API REST avec FastAPI.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Système de Recommandation</div>
+                        </div>
+                        <div class="item-date">2023</div>
+                    </div>
+                    <div class="item-description">
+                        Implémentation d'un système de recommandation hybride combinant filtrage collaboratif et content-based filtering. Utilisation de techniques de matrix factorization et deep learning pour améliorer les prédictions.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Kernel Methods & SVM</div>
+                        </div>
+                        <div class="item-date">2024</div>
+                    </div>
+                    <div class="item-description">
+                        Implémentation from scratch de méthodes à noyaux (Kernel Ridge Regression, SVM) en Python. Optimisation des hyperparamètres et comparaison de différents noyaux (RBF, polynomial, linéaire).
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Compétences Techniques</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🤖 Machine Learning & IA</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Keras</span>
+                            <span class="skill-tag">XGBoost</span>
+                            <span class="skill-tag">LightGBM</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>💻 Programmation</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Bash</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>📊 Data Analysis & Viz</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">Plotly</span>
+                            <span class="skill-tag">Tableau</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>🧠 Deep Learning & NLP</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">CNN</span>
+                            <span class="skill-tag">RNN/LSTM</span>
+                            <span class="skill-tag">Transformers</span>
+                            <span class="skill-tag">BERT</span>
+                            <span class="skill-tag">Hugging Face</span>
+                            <span class="skill-tag">spaCy</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>☁️ MLOps & Deployment</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">MLflow</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Azure</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>📈 Statistiques & Math</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Statistiques</span>
+                            <span class="skill-tag">Probabilités</span>
+                            <span class="skill-tag">Optimisation</span>
+                            <span class="skill-tag">Algèbre Linéaire</span>
+                            <span class="skill-tag">Time Series</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Langues</h2>
+                <div class="languages">
+                    <div class="language-item">
+                        <div class="language-name">Français</div>
+                        <div class="language-level">Courant (C1)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Anglais</div>
+                        <div class="language-level">Professionnel (B2/C1)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Arabe</div>
+                        <div class="language-level">Langue maternelle</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Centres d'Intérêt</h2>
+                <p class="profile-text">
+                    🚀 Veille technologique en IA et Machine Learning • 📚 Participation à des compétitions Kaggle • 💡 Contribution à des projets open-source • 🎯 Résolution de problèmes algorithmiques • 🌐 Apprentissage continu via MOOCs et certifications
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll and print functionality
+        window.addEventListener('load', function() {
+            console.log('CV chargé avec succès. Utilisez Ctrl+P pour imprimer en PDF.');
+        });
+    </script>
+</body>
+</html>

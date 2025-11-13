@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Zineb ZIANI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #667eea 100%);
+            color: white;
+            padding: 60px 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .header .tagline {
+            font-size: 22px;
+            font-weight: 300;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 50px 60px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .main-column {
+            min-width: 0;
+        }
+
+        .sidebar {
+            min-width: 0;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title-icon {
+            font-size: 28px;
+        }
+
+        .experience-item, .education-item, .publication-item {
+            margin-bottom: 35px;
+            padding-left: 25px;
+            border-left: 3px solid #e5e7eb;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover, .education-item:hover, .publication-item:hover {
+            border-left-color: #3b82f6;
+        }
+
+        .experience-item::before, .education-item::before, .publication-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+
+        .item-header {
+            margin-bottom: 12px;
+        }
+
+        .item-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 6px;
+        }
+
+        .item-company {
+            font-size: 16px;
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .item-date {
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+        }
+
+        .item-location {
+            font-size: 14px;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .item-description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .item-description li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .item-description li::marker {
+            color: #3b82f6;
+        }
+
+        .publication-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .publication-venue {
+            font-size: 14px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .skills-category {
+            margin-bottom: 25px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .skills-category h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skills-list {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.9;
+        }
+
+        .skills-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .skills-list li::marker {
+            color: #3b82f6;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: #3b82f6;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 2px solid #e0e7ff;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .languages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .language-item {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #1e3a8a;
+            font-size: 15px;
+        }
+
+        .language-level {
+            color: #64748b;
+            font-size: 13px;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .highlight-box h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .highlight-box ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .highlight-box li {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 40px;
+            }
+
+            .content {
+                padding: 30px 40px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .header, .content {
+                padding: 40px 30px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header, .content {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header .tagline {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Zineb ZIANI</h1>
+                <div class="tagline">AI Research Engineer | PhD in AI & High-Performance Computing</div>
+                <div class="contact-info">
+                    <div class="contact-item">📧 ziani.zineb.zz@gmail.com</div>
+                    <div class="contact-item">📱 06.43.42.32.70</div>
+                    <div class="contact-item">📍 Paris, France</div>
+                    <div class="contact-item">🎂 November 16, 1992</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="two-column">
+                <div class="main-column">
+                    <div class="section">
+                        <h2 class="section-title">
+                            <span class="section-title-icon">💼</span>
+                            Professional Experience
+                        </h2>
+
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div class="item-title">AI Research Engineer</div>
+                                <div class="item-company">ANOTHERBRAIN</div>
+                                <div class="item-date">Feb 2025 – Present</div>
+                                <div class="item-location">Paris, France</div>
+                            </div>
+                            <div class="item-description">
+                                <ul>
+                                    <li>Designing a cortical-inspired module for real intelligence, based on the structure of cortical columns</li>
+                                    <li>Conducting research on a memory-based recognition system inspired by biological mechanisms, using image descriptors</li>
+                                    <li>Developing novel approaches to artificial intelligence inspired by neuroscience and biological systems</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div class="item-title">Visiting Researcher | AI and HPC Engineer</div>
+                                <div class="item-company">RIKEN Center for Computational Science</div>
+                                <div class="item-date">July 2024 – Oct 2024</div>
+                                <div class="item-location">Tokyo, Japan</div>
+                            </div>
+                            <div class="item-description">
+                                <ul>
+                                    <li>Leveraged Parallel Deep Learning and Spectral Methods, including RNNs, GCNs, and MLP, for Advanced Parallel Anomaly Detection on the Fugaku Supercomputer</li>
+                                    <li>Optimized large-scale machine learning algorithms for high-performance computing environments</li>
+                                    <li>Collaborated with international research teams on cutting-edge AI and HPC projects</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div class="item-title">Visiting Researcher | AI and HPC Engineer</div>
+                                <div class="item-company">RIKEN Center for Computational Science</div>
+                                <div class="item-date">June 2023 – Sept 2023</div>
+                                <div class="item-location">Kobe, Japan</div>
+                            </div>
+                            <div class="item-description">
+                                <ul>
+                                    <li>Optimized AI anomaly detection framework on the Fugaku supercomputer, leveraging Python and gaining global-scale insights in HPC</li>
+                                    <li>Developed scalable algorithms for processing massive datasets on one of the world's fastest supercomputers</li>
+                                    <li>Achieved significant performance improvements through parallel processing techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div class="item-title">AI and HPC Engineer</div>
+                                <div class="item-company">CEA / NUMERYX Technologies</div>
+                                <div class="item-date">Dec 2021 – Jan 2025</div>
+                                <div class="item-location">Paris, France</div>
+                            </div>
+                            <div class="item-description">
+                                <ul>
+                                    <li>Deployed anomaly detection solutions by combining machine learning and deep learning models with the "Unite and Conquer" HPC strategy</li>
+                                    <li>Leveraged parallel processing on large datasets to enhance speed and accuracy of detection systems</li>
+                                    <li>Integrated the framework into a SOAR (Security Orchestration, Automation and Response) system and deployed it into production</li>
+                                    <li>Collaborated with cybersecurity teams to improve threat detection capabilities</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div class="item-title">Machine Learning Engineer</div>
+                                <div class="item-company">Orange</div>
+                                <div class="item-date">Feb 2021 – Aug 2021</div>
+                                <div class="item-location">Caen, France</div>
+                            </div>
+                            <div class="item-description">
+                                <ul>
+                                    <li>Studied and evaluated training methods to reduce model size (LSTM and BERT) while maintaining statistical efficiency</li>
+                                    <li>Addressed transfer learning, distillation, and quantization techniques for model optimization</li>
+                                    <li>Implemented efficient NLP models for production deployment</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="item-header">
+                                <div class="item-title">3D Geometric Modelling Engineer</div>
+                                <div class="item-company">Microlight 3D</div>
+                                <div class="item-date">May 2020 – Aug 2020</div>
+                                <div class="item-location">Grenoble, France</div>
+                            </div>
+                            <div class="item-description">
+                                <ul>
+                                    <li>Implemented a new "slicing" method to limit manufacturing volume and ensure consistency with mechanical strength</li>
+                                    <li>Utilized geometry libraries in C++ for 3D modeling and optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">
+                            <span class="section-title-icon">📚</span>
+                            Publications
+                        </h2>
+
+                        <div class="publication-item">
+                            <div class="publication-title">Enhancing the Parallel UC2B Framework: Approach Validation and Scalability Study</div>
+                            <div class="publication-venue">24th International Conference on Computational Science; Springer 2024</div>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-title">Unite and Conquer with Bagging-Boosting "UC2B" for Enhanced Anomaly Detection</div>
+                            <div class="publication-venue">2024 IEEE International Conference on Progress in Informatics Computing</div>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-title">A Parallel and Asynchronous Approach for Anomaly Detection</div>
+                            <div class="publication-venue">2024 IEEE International Conference on Big Data</div>
+                        </div>
+
+                        <div class="publication-item">
+                            <div class="publication-title">A Novel Approach to Parallel Anomaly Detection: Application in Cybersecurity</div>
+                            <div class="publication-venue">2023 IEEE International Conference on Big Data</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">
+                            <span class="section-title-icon">🏆</span>
+                            Academic Contributions
+                        </h2>
+
+                        <div class="highlight-box">
+                            <h3>Conference Roles</h3>
+                            <ul>
+                                <li><strong>Committee Chair</strong> – IEEE BigData Conference</li>
+                                <li><strong>Reviewer</strong> – ICCS 2023, 2024, 2025</li>
+                                <li><strong>Reviewer</strong> – IIAI AAI 2023, 2024, 2024-Winter</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="section">
+                        <h2 class="section-title">
+                            <span class="section-title-icon">🎓</span>
+                            Education
+                        </h2>
+
+                        <div class="education-item">
+                            <div class="item-header">
+                                <div class="item-title">PhD in Mathematics & Computer Science</div>
+                                <div class="item-company">University of Paris-Saclay</div>
+                                <div class="item-date">Feb 2022 – Jan 2025</div>
+                                <div class="item-location">Paris, France</div>
+                            </div>
+                            <div class="item-description">
+                                <strong>Focus:</strong> AI and HPC for Enhanced Anomaly Detection
+                                <br><br>
+                                Enhancing threat detection through data science, parallel computing, and supercomputers for more effective incident management.
+                            </div>
+                        </div>
+
+                        <div class="education-item">
+                            <div class="item-header">
+                                <div class="item-title">MSc in Industrial & Applied Mathematics</div>
+                                <div class="item-company">UGA-ENSIMAG</div>
+                                <div class="item-date">2019 – 2021</div>
+                                <div class="item-location">Grenoble, France</div>
+                            </div>
+                            <div class="item-description">
+                                <strong>Specialization:</strong> Data Science
+                                <br><br>
+                                Advanced learning models, Machine Learning, NLP, probabilistic data mining, statistical analysis, category learning, object recognition, Big Data & HPC computing.
+                            </div>
+                        </div>
+
+                        <div class="education-item">
+                            <div class="item-header">
+                                <div class="item-title">Bachelor in Fundamental Mathematics</div>
+                                <div class="item-company">University of Grenoble-Alpes</div>
+                                <div class="item-date">2017 – 2019</div>
+                                <div class="item-location">Grenoble, France</div>
+                            </div>
+                            <div class="item-description">
+                                Topology, Statistics, Algebra, Numerical modeling, PDE, Integral calculus & probability.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">
+                            <span class="section-title-icon">💻</span>
+                            Technical Skills
+                        </h2>
+
+                        <div class="skills-category">
+                            <h3>Programming</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">R</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">Linux</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h3>AI & ML</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Deep Learning</span>
+                                <span class="skill-tag">Machine Learning</span>
+                                <span class="skill-tag">NLP</span>
+                                <span class="skill-tag">Transformers</span>
+                                <span class="skill-tag">Autoencoders</span>
+                                <span class="skill-tag">RNNs</span>
+                                <span class="skill-tag">GCNs</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h3>High-Performance Computing</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Supercomputers</span>
+                                <span class="skill-tag">Clusters</span>
+                                <span class="skill-tag">Parallelism</span>
+                                <span class="skill-tag">SLURM</span>
+                                <span class="skill-tag">PJM</span>
+                                <span class="skill-tag">Fugaku</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h3>Cybersecurity</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Anomaly Detection</span>
+                                <span class="skill-tag">Vulnerability Analysis</span>
+                                <span class="skill-tag">SOAR Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">
+                            <span class="section-title-icon">🌍</span>
+                            Languages
+                        </h2>
+
+                        <div class="languages-list">
+                            <div class="language-item">
+                                <span class="language-name">French</span>
+                                <span class="language-level">Native</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">English</span>
+                                <span class="language-level">Fluent</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">Arabic</span>
+                                <span class="language-level">Native</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            console.log('CV loaded successfully. Press Ctrl+P to print as PDF.');
+        });
+    </script>
+</body>
+</html>
